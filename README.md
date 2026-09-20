@@ -9,6 +9,13 @@ python -c "from bridge.compare import compare, HARD; from pathlib import Path; \
   print(compare(Path('results/run'), seeds=range(5), budget=300, cal=HARD)['verdict'])"
 ```
 
+## Contract
+
+`schemas/ledger_eval_row.schema.json` — the evaluation-row contract (dual-key provenance:
+`genome_key` + `calibration_hash`). Tests validate every emitted row and every checked-in
+`results/**/*.ledger.jsonl`, and verify each chain. CI checks out the two siblings and runs
+the suite on 3.10 and 3.12.
+
 ## Pieces
 
 | module | role |

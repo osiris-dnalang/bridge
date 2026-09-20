@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/osiris-dnalang/bridge/schemas/ledger_eval_row.schema.json",
+  "title": "bridge evaluation row (dnalang Ledger, kind = eval)",
+  "description": "One unique circuit evaluation. Dual-key provenance: (genome_key, calibration_hash) joins this row to the organism telemetry row that requested it. hash = SHA-256(prev || canonical JSON of all fields except prev/hash).",
+  "type": "object",
+  "required": ["prev", "ts", "kind", "trial", "eval_index", "genome_key", "dna_sha",
+               "calibration_hash", "calibration", "counts_sha", "shots", "batches", "score", "hash"],
+  "additionalProperties": false,
+  "properties": {
+    "prev": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "ts": {"type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$"},
+    "kind": {"const": "eval"},
+    "trial": {"type": "integer", "minimum": 0},
+    "eval_index": {"type": "integer", "minimum": 1},
+    "genome_key": {"type": "string", "pattern": "^[IXY]+\\|[IXY]+\\|[0-9.]+$"},
+    "dna_sha": {"type": "string", "pattern": "^[0-9a-f]{16}$"},
+    "calibration_hash": {"type": "string", "pattern": "^[0-9a-f]{16}$"},
+    "calibration": {
+      "type": "object",
+      "required": ["sigma_detuning_mhz", "zz_khz", "p_gate", "p_readout"],
+      "additionalProperties": false,
+      "properties": {
+        "sigma_detuning_mhz": {"type": "number", "minimum": 0},
+        "zz_khz": {"type": "number", "minimum": 0},
+        "p_gate": {"type": "number", "minimum": 0, "maximum": 1},
+        "p_readout": {"type": "number", "minimum": 0, "maximum": 1}
+      }
+    },
+    "counts_sha": {"type": "string", "pattern": "^[0-9a-f]{16}$"},
+    "shots": {"type": "integer", "minimum": 1},
+    "batches": {"type": "integer", "minimum": 1},
+    "score": {"type": "number", "minimum": 0, "maximum": 1},
+    "hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  }
+}
