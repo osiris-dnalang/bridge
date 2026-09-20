@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+title: "bridge: organism_sim controller over dnalang-core's DD search space with Aer ground truth"
+message: "If you use this software, please cite it. Negative results are part of the record."
+type: software
+authors:
+  - family-names: Davis
+    given-names: Devin Phillip
+    email: osiris.dnalang@gmail.com
+version: 0.1.0
+date-released: 2026-09-20
+license: Apache-2.0
+repository-code: https://github.com/osiris-dnalang/bridge
+abstract: >-
+  Evolutionary controller (organism_sim LCS agent) over dnalang-core's dynamical-
+  decoupling search space, evaluated on Aer under quasi-static dephasing and ZZ
+  crosstalk implemented as exact unitaries (reproduces the ibm_fez staggered-XY4
+  result). Provenance joined across the organism audit chain and the dnalang ledger
+  on (genome_key, calibration_hash). Pre-registered results: budget-matched search
+  ties the dnalang GA (0.9763 vs 0.9758, staggered XY4 0.9705); calibration-shock
+  re-convergence - organism layer FAIL (1/5), controllers re-converge 2-3x faster
+  than the population GA (exploratory).

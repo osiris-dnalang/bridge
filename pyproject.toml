@@ -7,6 +7,8 @@ name = "aegis-bridge"
 version = "0.1.0"
 description = "Bridge: organism_sim evolutionary controller over dnalang-core's dynamical-decoupling search space, fitness from Aer under quasi-static dephasing + ZZ crosstalk with calibration drift. Provenance joined across both hash chains."
 requires-python = ">=3.9"
+license = {text = "Apache-2.0"}
+authors = [{name = "Devin Phillip Davis", email = "osiris.dnalang@gmail.com"}]
 dependencies = ["numpy>=1.24", "qiskit>=1.0", "qiskit-aer>=0.14"]
 
 [project.optional-dependencies]
