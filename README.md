@@ -1,5 +1,8 @@
 # bridge
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22862567.svg)](https://doi.org/10.5281/zenodo.22862567)  
+Snapshot 2026-09-20 of the three repositories with their pre-registered results: [10.5281/zenodo.22862567](https://doi.org/10.5281/zenodo.22862567) (concept DOI 10.5281/zenodo.22862566).
+
 `organism_sim` evolutionary controller × `dnalang-core` dynamical-decoupling search space
 × Aer ground truth. Neither sibling imports the other; this is the only place both appear.
 
