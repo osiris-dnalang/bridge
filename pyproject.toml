@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aegis-bridge"
+version = "0.1.0"
+description = "Bridge: organism_sim evolutionary controller over dnalang-core's dynamical-decoupling search space, fitness from Aer under quasi-static dephasing + ZZ crosstalk with calibration drift. Provenance joined across both hash chains."
+requires-python = ">=3.9"
+dependencies = ["numpy>=1.24", "qiskit>=1.0", "qiskit-aer>=0.14"]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0", "ruff>=0.4.0"]
+
+[tool.setuptools.packages.find]
+include = ["bridge*"]
+
+[tool.ruff]
+target-version = "py39"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]
+ignore = ["E501"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q --tb=short"
+
+[tool.ruff.lint.isort]
+# the two siblings are first-party for import ordering; ``bridge`` sorts first so its
+# package init (which registers the siblings) always runs before they are imported
+known-first-party = ["bridge", "dnalang", "organism_sim"]

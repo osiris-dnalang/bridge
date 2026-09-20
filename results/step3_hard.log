@@ -1,0 +1,56 @@
+{
+ "baselines": {
+  "none": 0.4931640625,
+  "cpmg": 0.448486328125,
+  "xy4": 0.448486328125,
+  "xy4_stag": 0.970458984375
+ },
+ "organism_median": 0.976318359375,
+ "ga_median": 0.975830078125,
+ "verdict": {
+  "C1_organism_matches_ga": true,
+  "C1_count": 5,
+  "C2_both_beat_baseline": true,
+  "C2_count": 5,
+  "n": 5,
+  "pass": true
+ },
+ "rows": [
+  {
+   "seed": 0,
+   "org": 0.9763,
+   "ga": 0.9761,
+   "org_key": "YIYIYXYX|IYIYIYIY|0.0",
+   "ga_key": "XIXYXIYX|IXXXYXIY|0.5"
+  },
+  {
+   "seed": 1,
+   "org": 0.9785,
+   "ga": 0.9751,
+   "org_key": "XYXIIYII|YYYYYXXY|0.5",
+   "ga_key": "XIYIYXXX|IYYXIYXY|0.5"
+  },
+  {
+   "seed": 2,
+   "org": 0.9763,
+   "ga": 0.9758,
+   "org_key": "YXYXYXYX|IYIYXIXI|0.5",
+   "ga_key": "XIXXXXXI|XXIXIXYY|0.5"
+  },
+  {
+   "seed": 3,
+   "org": 0.9719,
+   "ga": 0.9766,
+   "org_key": "IXIYYXXX|XYXYXYXY|0.5",
+   "ga_key": "XYXXYXXX|YYXIIXII|0.5"
+  },
+  {
+   "seed": 4,
+   "org": 0.9751,
+   "ga": 0.9744,
+   "org_key": "IXYXYXIX|IIXIIYXY|0.5",
+   "ga_key": "XYXXYXYY|IYIYIXIX|0.25"
+  }
+ ]
+}
+DONE 137s

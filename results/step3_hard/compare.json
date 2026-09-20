@@ -1,0 +1,385 @@
+{
+  "budget": 300,
+  "calibration": {
+    "sigma_detuning_mhz": 0.15,
+    "zz_khz": 40.0,
+    "p_gate": 0.004,
+    "p_readout": 0.01
+  },
+  "calibration_hash": "2bb4f781c32940b8",
+  "baselines_verify": {
+    "none": 0.4931640625,
+    "cpmg": 0.448486328125,
+    "xy4": 0.448486328125,
+    "xy4_stag": 0.970458984375
+  },
+  "best_baseline": 0.970458984375,
+  "tol": 0.005,
+  "rows": [
+    {
+      "seed": 0,
+      "organism": {
+        "method": "organism",
+        "seed": 0,
+        "evals": 300,
+        "trials": 22256,
+        "genome": {
+          "even": [
+            "Y",
+            "I",
+            "Y",
+            "I",
+            "Y",
+            "X",
+            "Y",
+            "X"
+          ],
+          "odd": [
+            "I",
+            "Y",
+            "I",
+            "Y",
+            "I",
+            "Y",
+            "I",
+            "Y"
+          ],
+          "offset": 0.0
+        },
+        "genome_key": "YIYIYXYX|IYIYIYIY|0.0",
+        "search_score": 0.9814453125,
+        "audit_chain_valid": true,
+        "ledger_valid": true,
+        "verify": 0.976318359375
+      },
+      "ga": {
+        "method": "ga",
+        "seed": 0,
+        "evals": 58,
+        "generations": 40,
+        "ga_reported_best": 0.9765625,
+        "genome": {
+          "even": [
+            "X",
+            "I",
+            "X",
+            "Y",
+            "X",
+            "I",
+            "Y",
+            "X"
+          ],
+          "odd": [
+            "I",
+            "X",
+            "X",
+            "X",
+            "Y",
+            "X",
+            "I",
+            "Y"
+          ],
+          "offset": 0.5
+        },
+        "genome_key": "XIXYXIYX|IXXXYXIY|0.5",
+        "search_score": 0.9765625,
+        "ledger_valid": true,
+        "verify": 0.97607421875
+      }
+    },
+    {
+      "seed": 1,
+      "organism": {
+        "method": "organism",
+        "seed": 1,
+        "evals": 300,
+        "trials": 12373,
+        "genome": {
+          "even": [
+            "X",
+            "Y",
+            "X",
+            "I",
+            "I",
+            "Y",
+            "I",
+            "I"
+          ],
+          "odd": [
+            "Y",
+            "Y",
+            "Y",
+            "Y",
+            "Y",
+            "X",
+            "X",
+            "Y"
+          ],
+          "offset": 0.5
+        },
+        "genome_key": "XYXIIYII|YYYYYXXY|0.5",
+        "search_score": 0.9833984375,
+        "audit_chain_valid": true,
+        "ledger_valid": true,
+        "verify": 0.978515625
+      },
+      "ga": {
+        "method": "ga",
+        "seed": 1,
+        "evals": 55,
+        "generations": 40,
+        "ga_reported_best": 0.9775390625,
+        "genome": {
+          "even": [
+            "X",
+            "I",
+            "Y",
+            "I",
+            "Y",
+            "X",
+            "X",
+            "X"
+          ],
+          "odd": [
+            "I",
+            "Y",
+            "Y",
+            "X",
+            "I",
+            "Y",
+            "X",
+            "Y"
+          ],
+          "offset": 0.5
+        },
+        "genome_key": "XIYIYXXX|IYYXIYXY|0.5",
+        "search_score": 0.9775390625,
+        "ledger_valid": true,
+        "verify": 0.97509765625
+      }
+    },
+    {
+      "seed": 2,
+      "organism": {
+        "method": "organism",
+        "seed": 2,
+        "evals": 300,
+        "trials": 25080,
+        "genome": {
+          "even": [
+            "Y",
+            "X",
+            "Y",
+            "X",
+            "Y",
+            "X",
+            "Y",
+            "X"
+          ],
+          "odd": [
+            "I",
+            "Y",
+            "I",
+            "Y",
+            "X",
+            "I",
+            "X",
+            "I"
+          ],
+          "offset": 0.5
+        },
+        "genome_key": "YXYXYXYX|IYIYXIXI|0.5",
+        "search_score": 0.98046875,
+        "audit_chain_valid": true,
+        "ledger_valid": true,
+        "verify": 0.976318359375
+      },
+      "ga": {
+        "method": "ga",
+        "seed": 2,
+        "evals": 50,
+        "generations": 40,
+        "ga_reported_best": 0.9765625,
+        "genome": {
+          "even": [
+            "X",
+            "I",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "I"
+          ],
+          "odd": [
+            "X",
+            "X",
+            "I",
+            "X",
+            "I",
+            "X",
+            "Y",
+            "Y"
+          ],
+          "offset": 0.5
+        },
+        "genome_key": "XIXXXXXI|XXIXIXYY|0.5",
+        "search_score": 0.9765625,
+        "ledger_valid": true,
+        "verify": 0.975830078125
+      }
+    },
+    {
+      "seed": 3,
+      "organism": {
+        "method": "organism",
+        "seed": 3,
+        "evals": 300,
+        "trials": 5124,
+        "genome": {
+          "even": [
+            "I",
+            "X",
+            "I",
+            "Y",
+            "Y",
+            "X",
+            "X",
+            "X"
+          ],
+          "odd": [
+            "X",
+            "Y",
+            "X",
+            "Y",
+            "X",
+            "Y",
+            "X",
+            "Y"
+          ],
+          "offset": 0.5
+        },
+        "genome_key": "IXIYYXXX|XYXYXYXY|0.5",
+        "search_score": 0.9853515625,
+        "audit_chain_valid": true,
+        "ledger_valid": true,
+        "verify": 0.971923828125
+      },
+      "ga": {
+        "method": "ga",
+        "seed": 3,
+        "evals": 68,
+        "generations": 40,
+        "ga_reported_best": 0.98046875,
+        "genome": {
+          "even": [
+            "X",
+            "Y",
+            "X",
+            "X",
+            "Y",
+            "X",
+            "X",
+            "X"
+          ],
+          "odd": [
+            "Y",
+            "Y",
+            "X",
+            "I",
+            "I",
+            "X",
+            "I",
+            "I"
+          ],
+          "offset": 0.5
+        },
+        "genome_key": "XYXXYXXX|YYXIIXII|0.5",
+        "search_score": 0.98046875,
+        "ledger_valid": true,
+        "verify": 0.9765625
+      }
+    },
+    {
+      "seed": 4,
+      "organism": {
+        "method": "organism",
+        "seed": 4,
+        "evals": 300,
+        "trials": 24461,
+        "genome": {
+          "even": [
+            "I",
+            "X",
+            "Y",
+            "X",
+            "Y",
+            "X",
+            "I",
+            "X"
+          ],
+          "odd": [
+            "I",
+            "I",
+            "X",
+            "I",
+            "I",
+            "Y",
+            "X",
+            "Y"
+          ],
+          "offset": 0.5
+        },
+        "genome_key": "IXYXYXIX|IIXIIYXY|0.5",
+        "search_score": 0.986328125,
+        "audit_chain_valid": true,
+        "ledger_valid": true,
+        "verify": 0.97509765625
+      },
+      "ga": {
+        "method": "ga",
+        "seed": 4,
+        "evals": 71,
+        "generations": 40,
+        "ga_reported_best": 0.98046875,
+        "genome": {
+          "even": [
+            "X",
+            "Y",
+            "X",
+            "X",
+            "Y",
+            "X",
+            "Y",
+            "Y"
+          ],
+          "odd": [
+            "I",
+            "Y",
+            "I",
+            "Y",
+            "I",
+            "X",
+            "I",
+            "X"
+          ],
+          "offset": 0.25
+        },
+        "genome_key": "XYXXYXYY|IYIYIXIX|0.25",
+        "search_score": 0.98046875,
+        "ledger_valid": true,
+        "verify": 0.974365234375
+      }
+    }
+  ],
+  "organism_median_verify": 0.976318359375,
+  "ga_median_verify": 0.975830078125,
+  "verdict": {
+    "C1_organism_matches_ga": true,
+    "C1_count": 5,
+    "C2_both_beat_baseline": true,
+    "C2_count": 5,
+    "n": 5,
+    "pass": true
+  }
+}
