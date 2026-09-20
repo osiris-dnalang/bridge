@@ -1,0 +1,134 @@
+ref 100 {'target': 0.9764453125, 'plain': 5, 'gac': 50}
+ref 101 {'target': 0.97546875, 'plain': 73, 'gac': 21}
+ref 102 {'target': 0.9783984375, 'plain': 107, 'gac': 50}
+ref 103 {'target': 0.977421875, 'plain': 10, 'gac': 2}
+ref 104 {'target': 0.97546875, 'plain': 13, 'gac': 17}
+{"repair_threshold": 0.05, "unrepaired_integral": 0.5, "window": 10, "median_evals_to_target": 15.0, "wins": 3, "ett": [15, 4, 22, 71, 9]}
+{"repair_threshold": 0.05, "unrepaired_integral": 2.0, "window": 10, "median_evals_to_target": 13.0, "wins": 2, "ett": [24, 4, 30, 10, 13]}
+{"repair_threshold": 0.08, "unrepaired_integral": 0.5, "window": 10, "median_evals_to_target": 31.0, "wins": 2, "ett": [32, 12, 143, 31, 6]}
+{"repair_threshold": 0.08, "unrepaired_integral": 2.0, "window": 10, "median_evals_to_target": 22.0, "wins": 2, "ett": [13, 23, 22, 53, 11]}
+{"repair_threshold": 0.12, "unrepaired_integral": 0.5, "window": 10, "median_evals_to_target": 16.0, "wins": 2, "ett": [34, 54, 16, 15, 1]}
+{"repair_threshold": 0.12, "unrepaired_integral": 2.0, "window": 10, "median_evals_to_target": 30.0, "wins": 0, "ett": [17, 31, 54, 21, 30]}
+SELECTED {"repair_threshold": 0.05, "unrepaired_integral": 0.5, "window": 10, "median_evals_to_target": 15.0, "wins": 3, "ett": [15, 4, 22, 71, 9]}
+EVAL {
+ "median_evals_to_target": {
+  "organism-structural": 14.0,
+  "organism-plain": 11.0,
+  "ga-continued": 30.0,
+  "ga-restarted": 38.0
+ },
+ "median_post_verify": {
+  "organism-structural": 0.97216796875,
+  "organism-plain": 0.974853515625,
+  "ga-continued": 0.975341796875,
+  "ga-restarted": 0.97705078125
+ },
+ "verdict": {
+  "structural_wins": 1,
+  "n": 5,
+  "pass": false
+ },
+ "rows": [
+  {
+   "seed": 0,
+   "oracle": 0.9834,
+   "organism-structural": [
+    14,
+    0.9722
+   ],
+   "organism-plain": [
+    22,
+    0.9749
+   ],
+   "ga-continued": [
+    47,
+    0.9758
+   ],
+   "ga-restarted": [
+    68,
+    0.9771
+   ]
+  },
+  {
+   "seed": 1,
+   "oracle": 0.9814,
+   "organism-structural": [
+    2,
+    0.9805
+   ],
+   "organism-plain": [
+    2,
+    0.9707
+   ],
+   "ga-continued": [
+    40,
+    0.9717
+   ],
+   "ga-restarted": [
+    81,
+    0.9763
+   ]
+  },
+  {
+   "seed": 2,
+   "oracle": 0.9814,
+   "organism-structural": [
+    1,
+    0.9788
+   ],
+   "organism-plain": [
+    1,
+    0.9802
+   ],
+   "ga-continued": [
+    7,
+    0.978
+   ],
+   "ga-restarted": [
+    16,
+    0.979
+   ]
+  },
+  {
+   "seed": 3,
+   "oracle": 0.9805,
+   "organism-structural": [
+    25,
+    0.9707
+   ],
+   "organism-plain": [
+    11,
+    0.9758
+   ],
+   "ga-continued": [
+    4,
+    0.9739
+   ],
+   "ga-restarted": [
+    14,
+    0.979
+   ]
+  },
+  {
+   "seed": 4,
+   "oracle": 0.9844,
+   "organism-structural": [
+    20,
+    0.9675
+   ],
+   "organism-plain": [
+    18,
+    0.9729
+   ],
+   "ga-continued": [
+    30,
+    0.9753
+   ],
+   "ga-restarted": [
+    38,
+    0.9736
+   ]
+  }
+ ]
+}
+DONE 1564s

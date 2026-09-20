@@ -83,6 +83,8 @@ class DDController:
         self.best_score = -1.0
         self.trial = 0
         self.history: List[Dict[str, Any]] = []
+        self.last_cal_hash: Optional[str] = None
+        self.shocks_seen = 0
 
     @staticmethod
     def register(last_score: float, drift_bin: int) -> str:
@@ -91,6 +93,12 @@ class DDController:
     def step(self) -> Dict[str, Any]:
         self.trial += 1
         drift_bin = self.f.schedule.bin(self.trial)
+        cal_hash = self.f.schedule.at(self.trial).hash()
+        if self.last_cal_hash is not None and cal_hash != self.last_cal_hash:
+            # calibration changed (public on real hardware): the incumbent's score is stale
+            self.shocks_seen += 1
+            self.rescore_best()
+        self.last_cal_hash = cal_hash
         if self.best_score < 0:
             self.best_score = self.f.score(self.genome, self.trial)
         self.agent.act(self.register(self.best_score, drift_bin))
@@ -99,6 +107,9 @@ class DDController:
         s = self.f.score(cand, self.trial)
         improved = s > self.best_score + 1e-9
         self.agent.reward(1.0 if improved else 0.0)
+        # the environment's error signal for this agent is the incumbent's infidelity;
+        # it is what the organism's repair/mutation triggers watch
+        self.agent.organism.inject_noise(1.0 - max(self.best_score, s))
         rec = self.agent.tick()
         if improved:
             self.genome, self.best_score = cand, s

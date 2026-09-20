@@ -1,0 +1,115 @@
+{
+ "ref": {
+  "100": {
+   "target": 0.9764453125,
+   "plain": 5,
+   "gac": 50
+  },
+  "101": {
+   "target": 0.97546875,
+   "plain": 73,
+   "gac": 21
+  },
+  "102": {
+   "target": 0.9783984375,
+   "plain": 107,
+   "gac": 50
+  },
+  "103": {
+   "target": 0.977421875,
+   "plain": 10,
+   "gac": 2
+  },
+  "104": {
+   "target": 0.97546875,
+   "plain": 13,
+   "gac": 17
+  }
+ },
+ "grid": [
+  {
+   "repair_threshold": 0.05,
+   "unrepaired_integral": 0.5,
+   "window": 10,
+   "median_evals_to_target": 15.0,
+   "wins": 3,
+   "ett": [
+    15,
+    4,
+    22,
+    71,
+    9
+   ]
+  },
+  {
+   "repair_threshold": 0.05,
+   "unrepaired_integral": 2.0,
+   "window": 10,
+   "median_evals_to_target": 13.0,
+   "wins": 2,
+   "ett": [
+    24,
+    4,
+    30,
+    10,
+    13
+   ]
+  },
+  {
+   "repair_threshold": 0.08,
+   "unrepaired_integral": 0.5,
+   "window": 10,
+   "median_evals_to_target": 31.0,
+   "wins": 2,
+   "ett": [
+    32,
+    12,
+    143,
+    31,
+    6
+   ]
+  },
+  {
+   "repair_threshold": 0.08,
+   "unrepaired_integral": 2.0,
+   "window": 10,
+   "median_evals_to_target": 22.0,
+   "wins": 2,
+   "ett": [
+    13,
+    23,
+    22,
+    53,
+    11
+   ]
+  },
+  {
+   "repair_threshold": 0.12,
+   "unrepaired_integral": 0.5,
+   "window": 10,
+   "median_evals_to_target": 16.0,
+   "wins": 2,
+   "ett": [
+    34,
+    54,
+    16,
+    15,
+    1
+   ]
+  },
+  {
+   "repair_threshold": 0.12,
+   "unrepaired_integral": 2.0,
+   "window": 10,
+   "median_evals_to_target": 30.0,
+   "wins": 0,
+   "ett": [
+    17,
+    31,
+    54,
+    21,
+    30
+   ]
+  }
+ ]
+}

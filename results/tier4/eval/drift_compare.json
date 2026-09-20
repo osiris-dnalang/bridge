@@ -1,0 +1,584 @@
+{
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "pre": 150,
+  "post": 250,
+  "margin": 0.005,
+  "C0": {
+    "sigma_detuning_mhz": 0.05,
+    "zz_khz": 20.0,
+    "p_gate": 0.002,
+    "p_readout": 0.01
+  },
+  "C1": {
+    "sigma_detuning_mhz": 0.15,
+    "zz_khz": 40.0,
+    "p_gate": 0.004,
+    "p_readout": 0.01
+  },
+  "triggers": {
+    "repair_threshold": 0.05,
+    "noise_floor": 0.02,
+    "entropy_floor_bits": 0.0,
+    "window": 10,
+    "unrepaired_integral": 0.5,
+    "sink_capacity": 10.0,
+    "trigger_deg": 180.0,
+    "trigger_tol_deg": 6.0,
+    "repair_gain": 0.6
+  },
+  "median_evals_to_target": {
+    "organism-structural": 14.0,
+    "organism-plain": 11.0,
+    "ga-continued": 30.0,
+    "ga-restarted": 38.0
+  },
+  "median_post_verify": {
+    "organism-structural": 0.97216796875,
+    "organism-plain": 0.974853515625,
+    "ga-continued": 0.975341796875,
+    "ga-restarted": 0.97705078125
+  },
+  "rows": [
+    {
+      "seed": 0,
+      "oracle": 0.9833984375,
+      "target": 0.9783984375,
+      "arms": {
+        "organism-structural": {
+          "arm": "organism-structural",
+          "seed": 0,
+          "trials": 11775,
+          "shocks_seen": 1,
+          "organism": {
+            "name": "DD",
+            "trial": 11775,
+            "noise_rate": 0.0591,
+            "entropy_bits": 3.1034,
+            "status": "degraded",
+            "macro": 322,
+            "micro": 400,
+            "repairs": 11676,
+            "mutations": 3449,
+            "engine": {
+              "cover": 31,
+              "ga": 2762,
+              "subsume": 5170,
+              "delete": 18951,
+              "compact": 11676,
+              "mutate": 13796,
+              "budget_exceeded": 0,
+              "shock": 3449
+            },
+            "routes": [],
+            "severed": 0,
+            "credits": 0
+          },
+          "audit_chain_valid": true,
+          "evals_total": 400,
+          "post_evals": 250,
+          "post_best_search": 0.984375,
+          "post_best_key": "IXYXIXYX|XYYYXYYY|0.5",
+          "ledger_valid": true,
+          "evals_to_target": 14,
+          "post_verify": 0.97216796875
+        },
+        "organism-plain": {
+          "arm": "organism-plain",
+          "seed": 0,
+          "trials": 5275,
+          "shocks_seen": 1,
+          "organism": {
+            "name": "DD",
+            "trial": 5275,
+            "noise_rate": 0.9477,
+            "entropy_bits": 3.3542,
+            "status": "critical",
+            "macro": 20,
+            "micro": 400,
+            "repairs": 5275,
+            "mutations": 3204,
+            "engine": {
+              "cover": 24,
+              "ga": 1161,
+              "subsume": 2125,
+              "delete": 1946,
+              "compact": 0,
+              "mutate": 0,
+              "budget_exceeded": 0
+            },
+            "routes": [],
+            "severed": 0,
+            "credits": 0
+          },
+          "audit_chain_valid": true,
+          "evals_total": 400,
+          "post_evals": 250,
+          "post_best_search": 0.982421875,
+          "post_best_key": "YIXIXIYI|XYYYYYYX|0.5",
+          "ledger_valid": true,
+          "evals_to_target": 22,
+          "post_verify": 0.974853515625
+        },
+        "ga-continued": {
+          "arm": "ga-continued",
+          "seed": 0,
+          "pre_population": 12,
+          "evals_total": 187,
+          "post_evals": 81,
+          "post_best_search": 0.986328125,
+          "post_best_key": "IIXXYIIY|XXYYYXXY|0.5",
+          "ledger_valid": true,
+          "evals_to_target": 47,
+          "post_verify": 0.975830078125
+        },
+        "ga-restarted": {
+          "arm": "ga-restarted",
+          "seed": 0,
+          "pre_population": 12,
+          "evals_total": 185,
+          "post_evals": 79,
+          "post_best_search": 0.986328125,
+          "post_best_key": "YIXIIXIY|YYIYIXXY|0.0",
+          "ledger_valid": true,
+          "evals_to_target": 68,
+          "post_verify": 0.97705078125
+        }
+      }
+    },
+    {
+      "seed": 1,
+      "oracle": 0.9814453125,
+      "target": 0.9764453125,
+      "arms": {
+        "organism-structural": {
+          "arm": "organism-structural",
+          "seed": 1,
+          "trials": 8613,
+          "shocks_seen": 1,
+          "organism": {
+            "name": "DD",
+            "trial": 8613,
+            "noise_rate": 0.1088,
+            "entropy_bits": 3.6611,
+            "status": "degraded",
+            "macro": 320,
+            "micro": 400,
+            "repairs": 8560,
+            "mutations": 2555,
+            "engine": {
+              "cover": 42,
+              "ga": 2010,
+              "subsume": 3550,
+              "delete": 13882,
+              "compact": 8560,
+              "mutate": 10220,
+              "budget_exceeded": 0,
+              "shock": 2555
+            },
+            "routes": [],
+            "severed": 0,
+            "credits": 0
+          },
+          "audit_chain_valid": true,
+          "evals_total": 400,
+          "post_evals": 250,
+          "post_best_search": 0.984375,
+          "post_best_key": "XYIYXYIY|XIYIYIXI|0.25",
+          "ledger_valid": true,
+          "evals_to_target": 2,
+          "post_verify": 0.98046875
+        },
+        "organism-plain": {
+          "arm": "organism-plain",
+          "seed": 1,
+          "trials": 8145,
+          "shocks_seen": 1,
+          "organism": {
+            "name": "DD",
+            "trial": 8145,
+            "noise_rate": 0.7935,
+            "entropy_bits": 3.1816,
+            "status": "critical",
+            "macro": 18,
+            "micro": 400,
+            "repairs": 8145,
+            "mutations": 4947,
+            "engine": {
+              "cover": 24,
+              "ga": 1707,
+              "subsume": 3194,
+              "delete": 3038,
+              "compact": 0,
+              "mutate": 0,
+              "budget_exceeded": 0
+            },
+            "routes": [],
+            "severed": 0,
+            "credits": 0
+          },
+          "audit_chain_valid": true,
+          "evals_total": 400,
+          "post_evals": 250,
+          "post_best_search": 0.9833984375,
+          "post_best_key": "XIXIYYXX|XXYXXXYX|0.5",
+          "ledger_valid": true,
+          "evals_to_target": 2,
+          "post_verify": 0.970703125
+        },
+        "ga-continued": {
+          "arm": "ga-continued",
+          "seed": 1,
+          "pre_population": 12,
+          "evals_total": 137,
+          "post_evals": 61,
+          "post_best_search": 0.9765625,
+          "post_best_key": "XXYYYYYY|IXXYIXYX|0.5",
+          "ledger_valid": true,
+          "evals_to_target": 40,
+          "post_verify": 0.9716796875
+        },
+        "ga-restarted": {
+          "arm": "ga-restarted",
+          "seed": 1,
+          "pre_population": 12,
+          "evals_total": 166,
+          "post_evals": 90,
+          "post_best_search": 0.98046875,
+          "post_best_key": "YIIIYIII|XXXYIXIY|0.25",
+          "ledger_valid": true,
+          "evals_to_target": 81,
+          "post_verify": 0.976318359375
+        }
+      }
+    },
+    {
+      "seed": 2,
+      "oracle": 0.9814453125,
+      "target": 0.9764453125,
+      "arms": {
+        "organism-structural": {
+          "arm": "organism-structural",
+          "seed": 2,
+          "trials": 12145,
+          "shocks_seen": 1,
+          "organism": {
+            "name": "DD",
+            "trial": 12145,
+            "noise_rate": 0.344,
+            "entropy_bits": 3.0467,
+            "status": "degraded",
+            "macro": 321,
+            "micro": 400,
+            "repairs": 12034,
+            "mutations": 3636,
+            "engine": {
+              "cover": 26,
+              "ga": 2851,
+              "subsume": 5802,
+              "delete": 19872,
+              "compact": 12034,
+              "mutate": 14544,
+              "budget_exceeded": 0,
+              "shock": 3636
+            },
+            "routes": [],
+            "severed": 0,
+            "credits": 0
+          },
+          "audit_chain_valid": true,
+          "evals_total": 400,
+          "post_evals": 250,
+          "post_best_search": 0.986328125,
+          "post_best_key": "IXIIXIYY|XXXXYIYI|0.5",
+          "ledger_valid": true,
+          "evals_to_target": 1,
+          "post_verify": 0.978759765625
+        },
+        "organism-plain": {
+          "arm": "organism-plain",
+          "seed": 2,
+          "trials": 23639,
+          "shocks_seen": 1,
+          "organism": {
+            "name": "DD",
+            "trial": 23639,
+            "noise_rate": 0.4307,
+            "entropy_bits": 3.3847,
+            "status": "degraded",
+            "macro": 12,
+            "micro": 400,
+            "repairs": 23631,
+            "mutations": 14403,
+            "engine": {
+              "cover": 16,
+              "ga": 4913,
+              "subsume": 9429,
+              "delete": 9442,
+              "compact": 0,
+              "mutate": 0,
+              "budget_exceeded": 0
+            },
+            "routes": [],
+            "severed": 0,
+            "credits": 0
+          },
+          "audit_chain_valid": true,
+          "evals_total": 400,
+          "post_evals": 250,
+          "post_best_search": 0.9853515625,
+          "post_best_key": "XIXYIYII|IIXIIIXI|0.0",
+          "ledger_valid": true,
+          "evals_to_target": 1,
+          "post_verify": 0.980224609375
+        },
+        "ga-continued": {
+          "arm": "ga-continued",
+          "seed": 2,
+          "pre_population": 12,
+          "evals_total": 148,
+          "post_evals": 69,
+          "post_best_search": 0.986328125,
+          "post_best_key": "IYIXXXXY|YYYXIXIY|0.5",
+          "ledger_valid": true,
+          "evals_to_target": 7,
+          "post_verify": 0.97802734375
+        },
+        "ga-restarted": {
+          "arm": "ga-restarted",
+          "seed": 2,
+          "pre_population": 12,
+          "evals_total": 162,
+          "post_evals": 83,
+          "post_best_search": 0.986328125,
+          "post_best_key": "XYIYXXIX|IYYXIIXI|0.0",
+          "ledger_valid": true,
+          "evals_to_target": 16,
+          "post_verify": 0.97900390625
+        }
+      }
+    },
+    {
+      "seed": 3,
+      "oracle": 0.98046875,
+      "target": 0.97546875,
+      "arms": {
+        "organism-structural": {
+          "arm": "organism-structural",
+          "seed": 3,
+          "trials": 6171,
+          "shocks_seen": 1,
+          "organism": {
+            "name": "DD",
+            "trial": 6171,
+            "noise_rate": 0.0665,
+            "entropy_bits": 3.0425,
+            "status": "degraded",
+            "macro": 291,
+            "micro": 400,
+            "repairs": 6130,
+            "mutations": 1886,
+            "engine": {
+              "cover": 21,
+              "ga": 1440,
+              "subsume": 2829,
+              "delete": 10045,
+              "compact": 6130,
+              "mutate": 7544,
+              "budget_exceeded": 0,
+              "shock": 1886
+            },
+            "routes": [],
+            "severed": 0,
+            "credits": 0
+          },
+          "audit_chain_valid": true,
+          "evals_total": 400,
+          "post_evals": 250,
+          "post_best_search": 0.982421875,
+          "post_best_key": "XYYXXYYX|XYIYYXIY|0.5",
+          "ledger_valid": true,
+          "evals_to_target": 25,
+          "post_verify": 0.970703125
+        },
+        "organism-plain": {
+          "arm": "organism-plain",
+          "seed": 3,
+          "trials": 22231,
+          "shocks_seen": 1,
+          "organism": {
+            "name": "DD",
+            "trial": 22231,
+            "noise_rate": 0.2913,
+            "entropy_bits": 3.3089,
+            "status": "degraded",
+            "macro": 15,
+            "micro": 400,
+            "repairs": 22230,
+            "mutations": 13556,
+            "engine": {
+              "cover": 19,
+              "ga": 4745,
+              "subsume": 9122,
+              "delete": 9109,
+              "compact": 0,
+              "mutate": 0,
+              "budget_exceeded": 0
+            },
+            "routes": [],
+            "severed": 0,
+            "credits": 0
+          },
+          "audit_chain_valid": true,
+          "evals_total": 400,
+          "post_evals": 250,
+          "post_best_search": 0.986328125,
+          "post_best_key": "YIYIYIYI|YYXYXYYY|0.0",
+          "ledger_valid": true,
+          "evals_to_target": 11,
+          "post_verify": 0.975830078125
+        },
+        "ga-continued": {
+          "arm": "ga-continued",
+          "seed": 3,
+          "pre_population": 12,
+          "evals_total": 171,
+          "post_evals": 68,
+          "post_best_search": 0.984375,
+          "post_best_key": "IXXYIXYX|XXYYYYYY|0.5",
+          "ledger_valid": true,
+          "evals_to_target": 4,
+          "post_verify": 0.973876953125
+        },
+        "ga-restarted": {
+          "arm": "ga-restarted",
+          "seed": 3,
+          "pre_population": 12,
+          "evals_total": 183,
+          "post_evals": 80,
+          "post_best_search": 0.98046875,
+          "post_best_key": "IYIIIYII|YIYIXXXX|0.5",
+          "ledger_valid": true,
+          "evals_to_target": 14,
+          "post_verify": 0.97900390625
+        }
+      }
+    },
+    {
+      "seed": 4,
+      "oracle": 0.984375,
+      "target": 0.979375,
+      "arms": {
+        "organism-structural": {
+          "arm": "organism-structural",
+          "seed": 4,
+          "trials": 12115,
+          "shocks_seen": 1,
+          "organism": {
+            "name": "DD",
+            "trial": 12115,
+            "noise_rate": 0.1358,
+            "entropy_bits": 3.1672,
+            "status": "degraded",
+            "macro": 327,
+            "micro": 400,
+            "repairs": 12059,
+            "mutations": 3644,
+            "engine": {
+              "cover": 35,
+              "ga": 2840,
+              "subsume": 5448,
+              "delete": 19891,
+              "compact": 12059,
+              "mutate": 14576,
+              "budget_exceeded": 0,
+              "shock": 3644
+            },
+            "routes": [],
+            "severed": 0,
+            "credits": 0
+          },
+          "audit_chain_valid": true,
+          "evals_total": 400,
+          "post_evals": 250,
+          "post_best_search": 0.98046875,
+          "post_best_key": "XYYYXYXX|XIYXYIYY|0.0",
+          "ledger_valid": true,
+          "evals_to_target": 20,
+          "post_verify": 0.967529296875
+        },
+        "organism-plain": {
+          "arm": "organism-plain",
+          "seed": 4,
+          "trials": 10260,
+          "shocks_seen": 1,
+          "organism": {
+            "name": "DD",
+            "trial": 10260,
+            "noise_rate": 0.3447,
+            "entropy_bits": 3.1895,
+            "status": "degraded",
+            "macro": 14,
+            "micro": 400,
+            "repairs": 10257,
+            "mutations": 6133,
+            "engine": {
+              "cover": 15,
+              "ga": 2238,
+              "subsume": 4210,
+              "delete": 4091,
+              "compact": 0,
+              "mutate": 0,
+              "budget_exceeded": 0
+            },
+            "routes": [],
+            "severed": 0,
+            "credits": 0
+          },
+          "audit_chain_valid": true,
+          "evals_total": 400,
+          "post_evals": 250,
+          "post_best_search": 0.986328125,
+          "post_best_key": "XIYIXIYI|YYYXXXXY|0.25",
+          "ledger_valid": true,
+          "evals_to_target": 18,
+          "post_verify": 0.972900390625
+        },
+        "ga-continued": {
+          "arm": "ga-continued",
+          "seed": 4,
+          "pre_population": 12,
+          "evals_total": 171,
+          "post_evals": 68,
+          "post_best_search": 0.98046875,
+          "post_best_key": "XIIXIYYI|XYIXXYIX|0.0",
+          "ledger_valid": true,
+          "evals_to_target": 30,
+          "post_verify": 0.975341796875
+        },
+        "ga-restarted": {
+          "arm": "ga-restarted",
+          "seed": 4,
+          "pre_population": 12,
+          "evals_total": 184,
+          "post_evals": 81,
+          "post_best_search": 0.986328125,
+          "post_best_key": "IXXXIXXX|XYXYIYIY|0.5",
+          "ledger_valid": true,
+          "evals_to_target": 38,
+          "post_verify": 0.9736328125
+        }
+      }
+    }
+  ],
+  "verdict": {
+    "structural_wins": 1,
+    "n": 5,
+    "pass": false
+  }
+}

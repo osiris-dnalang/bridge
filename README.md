@@ -39,6 +39,28 @@ staggered XY4, which is already near the model's gate-error ceiling. Established
 environment, the provenance join, and that the organism controller is not worse than a
 population GA at equal hardware budget. Not established: that it is better.
 
-Next pre-registration (Tier 4): `DriftSchedule.shock` mid-run; criterion on re-convergence
-time after the calibration hash changes, organism (structural on) vs GA restarted vs GA
-continued.
+## Tier 4 — calibration shock, pre-registered, FAIL
+
+`drift_bench.py`: 150 unique evaluations under C0, then the calibration hash changes to
+the hard C1 and every arm gets 250 more. Four arms, same seeds and budget: `organism-
+structural` (hooks on: infidelity → noise → compaction / GP variants / shock), `organism-
+plain` (hooks off, isolates the layer), `ga-continued` (dnalang GA warm-started from its
+pre-shock population), `ga-restarted` (fresh population). Metric: post-shock evaluations
+until the arm's best search score reaches oracle − 0.005 (oracle = GA with 3× budget under
+C1). Criterion stated first: structural beats **both** plain and ga-continued on ≥ 4/5
+seeds. Triggers tuned on seeds 100–104 (`results/tier4/tier4_tuning_seeds100-104.json`),
+evaluated once on 0–4 (`results/tier4/eval/drift_compare.json`).
+
+| arm | median evals to target | median post-shock verified fidelity |
+|---|---|---|
+| organism-structural | 14 | 0.9722 |
+| organism-plain | 11 | 0.9749 |
+| ga-continued | 30 | 0.9753 |
+| ga-restarted | 38 | 0.9771 |
+
+Structural wins 1/5 → **FAIL**. The organism layer is redundant for continuous
+calibration drift, as it was for concept drift: after a shock a warm incumbent is already
+within a few evaluations of the new optimum. Exploratory, not pre-registered: both
+organism *controllers* re-converge 2–3× faster than the population GA (hill-climbing from
+a still-good incumbent is cheaper than re-evaluating a population) — a hypothesis about the
+controller, not the layer, for a future pre-registration.

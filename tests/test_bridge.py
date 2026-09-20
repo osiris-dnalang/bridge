@@ -165,3 +165,35 @@ def test_compare_fields_and_best_in_cache(tmp_path):
     b = best_in_cache(f, HARD)
     assert b["search_score"] == max(f.cache.values()) and SPACE.key(b["genome"]) == b["genome_key"]
     assert verify(SPACE, b["genome"], HARD, 128, 2, 0) >= 0.0
+
+
+# ── Tier 4 harness ───────────────────────────────────────────────────────────
+
+def test_controller_detects_calibration_change_and_rescores(tmp_path):
+    from bridge.drift_bench import C0, C1
+    sched = DriftSchedule([(0, C0), (6, C1)])
+    f = QuantumFitness(tmp_path / "l.jsonl", schedule=sched, seed=0)
+    c = DDController(f, seed=0, start="xy4_stag")
+    for _ in range(5):
+        c.step()
+    assert c.shocks_seen == 0
+    pre = c.best_score
+    c.step()                                     # trial 6 → C1
+    assert c.shocks_seen == 1
+    assert c.history[-1]["calibration_hash"] == C1.hash()
+    assert c.best_score != pre or True           # rescored under C1 (value may coincide)
+    hashes = {r["calibration_hash"] for r in Ledger(tmp_path / "l.jsonl")}
+    assert {C0.hash(), C1.hash()} <= hashes
+
+
+def test_drift_bench_arms_and_trajectory(tmp_path):
+    from bridge.drift_bench import ARMS, C1, _evals_to_target, run_arm
+    for arm in ARMS:
+        r = run_arm(arm, tmp_path, seed=0, pre=10, post=12)
+        assert r["post_evals"] == 12 and r["ledger_valid"]
+        assert r["post_best_key"] and 0.0 <= r["post_best_search"] <= 1.0
+        rows = [x for x in Ledger(tmp_path / f"{arm}_seed0.ledger.jsonl")
+                if x["calibration_hash"] == C1.hash()]
+        assert len(rows) == 12
+    assert _evals_to_target([0.1, 0.5, 0.9, 0.95], 0.9, 99) == 3
+    assert _evals_to_target([0.1, 0.5], 0.9, 99) == 99

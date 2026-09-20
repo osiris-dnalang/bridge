@@ -4,3 +4,5 @@ __pycache__/
 .pytest_cache/
 .ruff_cache/
 results/*/probe.ledger.jsonl
+results/tier4/tuning/
+results/tier4/eval/*.ledger.jsonl
