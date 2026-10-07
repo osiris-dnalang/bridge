@@ -1,0 +1,5 @@
+start 2026-10-07T06:00:08Z
+interpreter /root/aer_venv/bin/python -> /usr/bin/python3.13
+bridge dd397f7 (code identical to d30b675)
+{'note': 'not pre-registered; does not affect verdict', 'bo_ge_ga_minus_tol': 5, 'bo_ge_organism_minus_tol': 5, 'bo_beats_baseline': 5, 'n': 5}
+end 2026-10-07T06:12:20Z exit 0

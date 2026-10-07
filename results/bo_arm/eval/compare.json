@@ -1,0 +1,573 @@
+{
+  "budget": 300,
+  "calibration": {
+    "sigma_detuning_mhz": 0.15,
+    "zz_khz": 40.0,
+    "p_gate": 0.004,
+    "p_readout": 0.01
+  },
+  "calibration_hash": "2bb4f781c32940b8",
+  "baselines_verify": {
+    "none": 0.4931640625,
+    "cpmg": 0.448486328125,
+    "xy4": 0.448486328125,
+    "xy4_stag": 0.970458984375
+  },
+  "best_baseline": 0.970458984375,
+  "tol": 0.005,
+  "rows": [
+    {
+      "seed": 5,
+      "organism": {
+        "method": "organism",
+        "seed": 5,
+        "evals": 300,
+        "trials": 26107,
+        "genome": {
+          "even": [
+            "X",
+            "Y",
+            "X",
+            "Y",
+            "X",
+            "Y",
+            "X",
+            "Y"
+          ],
+          "odd": [
+            "X",
+            "I",
+            "I",
+            "Y",
+            "I",
+            "Y",
+            "X",
+            "I"
+          ],
+          "offset": 0.5
+        },
+        "genome_key": "XYXYXYXY|XIIYIYXI|0.5",
+        "search_score": 0.9814453125,
+        "audit_chain_valid": true,
+        "ledger_valid": true,
+        "verify": 0.976318359375
+      },
+      "ga": {
+        "method": "ga",
+        "seed": 5,
+        "evals": 85,
+        "generations": 40,
+        "ga_reported_best": 0.9794921875,
+        "genome": {
+          "even": [
+            "Y",
+            "X",
+            "Y",
+            "Y",
+            "X",
+            "I",
+            "Y",
+            "I"
+          ],
+          "odd": [
+            "Y",
+            "I",
+            "Y",
+            "X",
+            "X",
+            "X",
+            "X",
+            "I"
+          ],
+          "offset": 0.0
+        },
+        "genome_key": "YXYYXIYI|YIYXXXXI|0.0",
+        "search_score": 0.9794921875,
+        "ledger_valid": true,
+        "verify": 0.96630859375
+      },
+      "bo": {
+        "method": "bo",
+        "seed": 5,
+        "evals": 300,
+        "trials": 10539,
+        "rejected_by_screen": 10150,
+        "sampler": "optuna.TPESampler",
+        "optuna_version": "5.0.0",
+        "genome": {
+          "even": [
+            "X",
+            "X",
+            "X",
+            "I",
+            "I",
+            "X",
+            "I",
+            "I"
+          ],
+          "odd": [
+            "I",
+            "Y",
+            "I",
+            "Y",
+            "X",
+            "Y",
+            "X",
+            "Y"
+          ],
+          "offset": 0.5
+        },
+        "genome_key": "XXXIIXII|IYIYXYXY|0.5",
+        "search_score": 0.984375,
+        "ledger_valid": true,
+        "verify": 0.97314453125
+      }
+    },
+    {
+      "seed": 6,
+      "organism": {
+        "method": "organism",
+        "seed": 6,
+        "evals": 300,
+        "trials": 19860,
+        "genome": {
+          "even": [
+            "X",
+            "X",
+            "I",
+            "Y",
+            "I",
+            "X",
+            "Y",
+            "X"
+          ],
+          "odd": [
+            "I",
+            "Y",
+            "Y",
+            "Y",
+            "Y",
+            "Y",
+            "I",
+            "Y"
+          ],
+          "offset": 0.5
+        },
+        "genome_key": "XXIYIXYX|IYYYYYIY|0.5",
+        "search_score": 0.9814453125,
+        "audit_chain_valid": true,
+        "ledger_valid": true,
+        "verify": 0.97705078125
+      },
+      "ga": {
+        "method": "ga",
+        "seed": 6,
+        "evals": 70,
+        "generations": 40,
+        "ga_reported_best": 0.978515625,
+        "genome": {
+          "even": [
+            "Y",
+            "Y",
+            "I",
+            "X",
+            "X",
+            "X",
+            "I",
+            "X"
+          ],
+          "odd": [
+            "Y",
+            "Y",
+            "I",
+            "X",
+            "I",
+            "X",
+            "X",
+            "X"
+          ],
+          "offset": 0.5
+        },
+        "genome_key": "YYIXXXIX|YYIXIXXX|0.5",
+        "search_score": 0.978515625,
+        "ledger_valid": true,
+        "verify": 0.97509765625
+      },
+      "bo": {
+        "method": "bo",
+        "seed": 6,
+        "evals": 223,
+        "trials": 15000,
+        "rejected_by_screen": 14729,
+        "sampler": "optuna.TPESampler",
+        "optuna_version": "5.0.0",
+        "genome": {
+          "even": [
+            "I",
+            "X",
+            "I",
+            "Y",
+            "Y",
+            "X",
+            "X",
+            "X"
+          ],
+          "odd": [
+            "X",
+            "X",
+            "Y",
+            "Y",
+            "Y",
+            "X",
+            "Y",
+            "X"
+          ],
+          "offset": 0.5
+        },
+        "genome_key": "IXIYYXXX|XXYYYXYX|0.5",
+        "search_score": 0.9853515625,
+        "ledger_valid": true,
+        "verify": 0.974609375
+      }
+    },
+    {
+      "seed": 7,
+      "organism": {
+        "method": "organism",
+        "seed": 7,
+        "evals": 300,
+        "trials": 23219,
+        "genome": {
+          "even": [
+            "X",
+            "I",
+            "X",
+            "I",
+            "X",
+            "I",
+            "X",
+            "I"
+          ],
+          "odd": [
+            "X",
+            "Y",
+            "X",
+            "Y",
+            "X",
+            "Y",
+            "X",
+            "Y"
+          ],
+          "offset": 0.0
+        },
+        "genome_key": "XIXIXIXI|XYXYXYXY|0.0",
+        "search_score": 0.9833984375,
+        "audit_chain_valid": true,
+        "ledger_valid": true,
+        "verify": 0.97412109375
+      },
+      "ga": {
+        "method": "ga",
+        "seed": 7,
+        "evals": 96,
+        "generations": 40,
+        "ga_reported_best": 0.98046875,
+        "genome": {
+          "even": [
+            "Y",
+            "X",
+            "X",
+            "I",
+            "Y",
+            "X",
+            "X",
+            "I"
+          ],
+          "odd": [
+            "X",
+            "X",
+            "X",
+            "Y",
+            "Y",
+            "X",
+            "X",
+            "X"
+          ],
+          "offset": 0.25
+        },
+        "genome_key": "YXXIYXXI|XXXYYXXX|0.25",
+        "search_score": 0.98046875,
+        "ledger_valid": true,
+        "verify": 0.968505859375
+      },
+      "bo": {
+        "method": "bo",
+        "seed": 7,
+        "evals": 226,
+        "trials": 15000,
+        "rejected_by_screen": 14746,
+        "sampler": "optuna.TPESampler",
+        "optuna_version": "5.0.0",
+        "genome": {
+          "even": [
+            "X",
+            "Y",
+            "Y",
+            "Y",
+            "X",
+            "Y",
+            "Y",
+            "Y"
+          ],
+          "odd": [
+            "X",
+            "I",
+            "X",
+            "X",
+            "I",
+            "X",
+            "I",
+            "I"
+          ],
+          "offset": 0.0
+        },
+        "genome_key": "XYYYXYYY|XIXXIXII|0.0",
+        "search_score": 0.9794921875,
+        "ledger_valid": true,
+        "verify": 0.971923828125
+      }
+    },
+    {
+      "seed": 8,
+      "organism": {
+        "method": "organism",
+        "seed": 8,
+        "evals": 300,
+        "trials": 12872,
+        "genome": {
+          "even": [
+            "I",
+            "X",
+            "I",
+            "Y",
+            "Y",
+            "Y",
+            "X",
+            "Y"
+          ],
+          "odd": [
+            "X",
+            "Y",
+            "X",
+            "X",
+            "X",
+            "Y",
+            "Y",
+            "Y"
+          ],
+          "offset": 0.5
+        },
+        "genome_key": "IXIYYYXY|XYXXXYYY|0.5",
+        "search_score": 0.9794921875,
+        "audit_chain_valid": true,
+        "ledger_valid": true,
+        "verify": 0.96923828125
+      },
+      "ga": {
+        "method": "ga",
+        "seed": 8,
+        "evals": 83,
+        "generations": 40,
+        "ga_reported_best": 0.978515625,
+        "genome": {
+          "even": [
+            "Y",
+            "X",
+            "I",
+            "Y",
+            "I",
+            "I",
+            "X",
+            "I"
+          ],
+          "odd": [
+            "X",
+            "X",
+            "X",
+            "Y",
+            "Y",
+            "Y",
+            "X",
+            "Y"
+          ],
+          "offset": 0.0
+        },
+        "genome_key": "YXIYIIXI|XXXYYYXY|0.0",
+        "search_score": 0.978515625,
+        "ledger_valid": true,
+        "verify": 0.971923828125
+      },
+      "bo": {
+        "method": "bo",
+        "seed": 8,
+        "evals": 258,
+        "trials": 15000,
+        "rejected_by_screen": 14657,
+        "sampler": "optuna.TPESampler",
+        "optuna_version": "5.0.0",
+        "genome": {
+          "even": [
+            "I",
+            "Y",
+            "Y",
+            "Y",
+            "I",
+            "X",
+            "X",
+            "Y"
+          ],
+          "odd": [
+            "Y",
+            "X",
+            "I",
+            "I",
+            "Y",
+            "I",
+            "I",
+            "X"
+          ],
+          "offset": 0.25
+        },
+        "genome_key": "IYYYIXXY|YXIIYIIX|0.25",
+        "search_score": 0.9892578125,
+        "ledger_valid": true,
+        "verify": 0.972412109375
+      }
+    },
+    {
+      "seed": 9,
+      "organism": {
+        "method": "organism",
+        "seed": 9,
+        "evals": 300,
+        "trials": 5659,
+        "genome": {
+          "even": [
+            "Y",
+            "X",
+            "I",
+            "X",
+            "Y",
+            "X",
+            "I",
+            "X"
+          ],
+          "odd": [
+            "X",
+            "Y",
+            "Y",
+            "Y",
+            "X",
+            "Y",
+            "Y",
+            "Y"
+          ],
+          "offset": 0.5
+        },
+        "genome_key": "YXIXYXIX|XYYYXYYY|0.5",
+        "search_score": 0.982421875,
+        "audit_chain_valid": true,
+        "ledger_valid": true,
+        "verify": 0.973876953125
+      },
+      "ga": {
+        "method": "ga",
+        "seed": 9,
+        "evals": 99,
+        "generations": 40,
+        "ga_reported_best": 0.978515625,
+        "genome": {
+          "even": [
+            "X",
+            "X",
+            "Y",
+            "Y",
+            "X",
+            "Y",
+            "X",
+            "Y"
+          ],
+          "odd": [
+            "Y",
+            "X",
+            "Y",
+            "X",
+            "X",
+            "Y",
+            "Y",
+            "X"
+          ],
+          "offset": 0.5
+        },
+        "genome_key": "XXYYXYXY|YXYXXYYX|0.5",
+        "search_score": 0.978515625,
+        "ledger_valid": true,
+        "verify": 0.969482421875
+      },
+      "bo": {
+        "method": "bo",
+        "seed": 9,
+        "evals": 275,
+        "trials": 15000,
+        "rejected_by_screen": 14573,
+        "sampler": "optuna.TPESampler",
+        "optuna_version": "5.0.0",
+        "genome": {
+          "even": [
+            "X",
+            "Y",
+            "Y",
+            "Y",
+            "X",
+            "I",
+            "Y",
+            "I"
+          ],
+          "odd": [
+            "X",
+            "I",
+            "Y",
+            "I",
+            "I",
+            "Y",
+            "I",
+            "X"
+          ],
+          "offset": 0.0
+        },
+        "genome_key": "XYYYXIYI|XIYIIYIX|0.0",
+        "search_score": 0.9794921875,
+        "ledger_valid": true,
+        "verify": 0.973876953125
+      }
+    }
+  ],
+  "organism_median_verify": 0.97412109375,
+  "ga_median_verify": 0.969482421875,
+  "verdict": {
+    "C1_organism_matches_ga": true,
+    "C1_count": 5,
+    "C2_both_beat_baseline": false,
+    "C2_count": 1,
+    "n": 5,
+    "pass": false
+  },
+  "bo_median_verify": 0.97314453125,
+  "exploratory": {
+    "note": "not pre-registered; does not affect verdict",
+    "bo_ge_ga_minus_tol": 5,
+    "bo_ge_organism_minus_tol": 5,
+    "bo_beats_baseline": 5,
+    "n": 5
+  }
+}

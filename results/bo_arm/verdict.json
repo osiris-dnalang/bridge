@@ -1,0 +1,181 @@
+{
+  "baselines_verify": {
+    "none": 0.4931640625,
+    "cpmg": 0.448486328125,
+    "xy4": 0.448486328125,
+    "xy4_stag": 0.970458984375
+  },
+  "best_baseline": 0.970458984375,
+  "table": [
+    {
+      "seed": 5,
+      "ga": 0.96630859375,
+      "bo": 0.97314453125,
+      "organism": 0.976318359375,
+      "delta": 0.0068359375,
+      "bo_minus_org": -0.003173828125,
+      "bo_evals": 300,
+      "ga_evals": 85,
+      "org_evals": 300,
+      "bo_rejected_frac": 0.9630894771799982
+    },
+    {
+      "seed": 6,
+      "ga": 0.97509765625,
+      "bo": 0.974609375,
+      "organism": 0.97705078125,
+      "delta": -0.00048828125,
+      "bo_minus_org": -0.00244140625,
+      "bo_evals": 223,
+      "ga_evals": 70,
+      "org_evals": 300,
+      "bo_rejected_frac": 0.9819333333333333
+    },
+    {
+      "seed": 7,
+      "ga": 0.968505859375,
+      "bo": 0.971923828125,
+      "organism": 0.97412109375,
+      "delta": 0.00341796875,
+      "bo_minus_org": -0.002197265625,
+      "bo_evals": 226,
+      "ga_evals": 96,
+      "org_evals": 300,
+      "bo_rejected_frac": 0.9830666666666666
+    },
+    {
+      "seed": 8,
+      "ga": 0.971923828125,
+      "bo": 0.972412109375,
+      "organism": 0.96923828125,
+      "delta": 0.00048828125,
+      "bo_minus_org": 0.003173828125,
+      "bo_evals": 258,
+      "ga_evals": 83,
+      "org_evals": 300,
+      "bo_rejected_frac": 0.9771333333333333
+    },
+    {
+      "seed": 9,
+      "ga": 0.969482421875,
+      "bo": 0.973876953125,
+      "organism": 0.973876953125,
+      "delta": 0.00439453125,
+      "bo_minus_org": 0.0,
+      "bo_evals": 275,
+      "ga_evals": 99,
+      "org_evals": 300,
+      "bo_rejected_frac": 0.9715333333333334
+    }
+  ],
+  "P1_count": 1,
+  "P1_pass": false,
+  "not_worse_count": 5,
+  "classification": "tie",
+  "P2_count": 5,
+  "P2_pass": true,
+  "verdict_C1C2_step3_style": {
+    "C1_organism_matches_ga": true,
+    "C1_count": 5,
+    "C2_both_beat_baseline": false,
+    "C2_count": 1,
+    "n": 5,
+    "pass": false
+  },
+  "medians": {
+    "ga": 0.969482421875,
+    "bo": 0.97314453125,
+    "organism": 0.97412109375
+  },
+  "exploratory_from_compare": {
+    "note": "not pre-registered; does not affect verdict",
+    "bo_ge_ga_minus_tol": 5,
+    "bo_ge_organism_minus_tol": 5,
+    "bo_beats_baseline": 5,
+    "n": 5
+  },
+  "ledger_chains_valid": {
+    "bo_seed5.ledger.jsonl": true,
+    "bo_seed6.ledger.jsonl": true,
+    "bo_seed7.ledger.jsonl": true,
+    "bo_seed8.ledger.jsonl": true,
+    "bo_seed9.ledger.jsonl": true,
+    "ga_seed5.ledger.jsonl": true,
+    "ga_seed6.ledger.jsonl": true,
+    "ga_seed7.ledger.jsonl": true,
+    "ga_seed8.ledger.jsonl": true,
+    "ga_seed9.ledger.jsonl": true,
+    "organism_seed5.ledger.jsonl": true,
+    "organism_seed6.ledger.jsonl": true,
+    "organism_seed7.ledger.jsonl": true,
+    "organism_seed8.ledger.jsonl": true,
+    "organism_seed9.ledger.jsonl": true,
+    "probe.ledger.jsonl": true
+  },
+  "first_eval_reaching_final_best": {
+    "bo_seed5.ledger.jsonl": [
+      277,
+      300
+    ],
+    "bo_seed6.ledger.jsonl": [
+      91,
+      223
+    ],
+    "bo_seed7.ledger.jsonl": [
+      17,
+      226
+    ],
+    "bo_seed8.ledger.jsonl": [
+      166,
+      258
+    ],
+    "bo_seed9.ledger.jsonl": [
+      184,
+      275
+    ],
+    "ga_seed5.ledger.jsonl": [
+      55,
+      85
+    ],
+    "ga_seed6.ledger.jsonl": [
+      50,
+      70
+    ],
+    "ga_seed7.ledger.jsonl": [
+      25,
+      96
+    ],
+    "ga_seed8.ledger.jsonl": [
+      7,
+      83
+    ],
+    "ga_seed9.ledger.jsonl": [
+      80,
+      99
+    ],
+    "organism_seed5.ledger.jsonl": [
+      7,
+      300
+    ],
+    "organism_seed6.ledger.jsonl": [
+      54,
+      300
+    ],
+    "organism_seed7.ledger.jsonl": [
+      4,
+      300
+    ],
+    "organism_seed8.ledger.jsonl": [
+      279,
+      300
+    ],
+    "organism_seed9.ledger.jsonl": [
+      209,
+      300
+    ]
+  },
+  "determinism_check": {
+    "aborted_rows": 257,
+    "identical_prefix": true
+  }
+}
