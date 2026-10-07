@@ -21,7 +21,7 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
-from typing import Any, Dict, List, Sequence
+from typing import Any, Dict, List, Sequence, Tuple
 
 import numpy as np
 
@@ -36,11 +36,16 @@ from .quantum_fitness import DDController, QuantumFitness
 HARD = Calibration(sigma_detuning_mhz=0.15, zz_khz=40.0, p_gate=0.004, p_readout=0.01)
 
 
-def verify(space, genome: dict, cal: Calibration, shots: int = 1024, batches: int = 8,
-           seed: int = 0, T_us: float = 16.0) -> float:
+def verify_counts(space, genome: dict, cal: Calibration, shots: int = 1024, batches: int = 8,
+                  seed: int = 0, T_us: float = 16.0) -> Tuple[float, Dict[str, int]]:
     circ = lower(parse(space.to_dna(genome, T_us=T_us)))
     counts = evaluate(circ, cal, shots, batches, seed=seed)
-    return survival_plus(counts, range(circ.n_qubits), circ.n_qubits)
+    return survival_plus(counts, range(circ.n_qubits), circ.n_qubits), counts
+
+
+def verify(space, genome: dict, cal: Calibration, shots: int = 1024, batches: int = 8,
+           seed: int = 0, T_us: float = 16.0) -> float:
+    return verify_counts(space, genome, cal, shots, batches, seed, T_us)[0]
 
 
 def best_in_cache(f: QuantumFitness, cal: Calibration) -> Dict[str, Any]:
@@ -125,7 +130,8 @@ def run_bo(workdir: Path, seed: int, budget: int, cal: Calibration,
 
 def compare(workdir: Path, seeds: Sequence[int] = range(5), budget: int = 300,
             cal: Calibration = HARD, tol: float = 0.005, verify_shots: int = 1024,
-            structural: bool = False, include_bo: bool = False) -> Dict[str, Any]:
+            structural: bool = False, include_bo: bool = False,
+            keep_counts: bool = False) -> Dict[str, Any]:
     workdir = Path(workdir)
     workdir.mkdir(parents=True, exist_ok=True)
     space = QuantumFitness(workdir / "probe.ledger.jsonl", DriftSchedule.constant(cal)).space
@@ -136,8 +142,10 @@ def compare(workdir: Path, seeds: Sequence[int] = range(5), budget: int = 300,
     for sd in seeds:
         o = run_organism(workdir, sd, budget, cal, structural)
         g = run_ga(workdir, sd, budget, cal)
-        o["verify"] = verify(space, o["genome"], cal, verify_shots, 8, vseed + sd + 1)
-        g["verify"] = verify(space, g["genome"], cal, verify_shots, 8, vseed + sd + 1)
+        o["verify"], o_counts = verify_counts(space, o["genome"], cal, verify_shots, 8, vseed + sd + 1)
+        g["verify"], g_counts = verify_counts(space, g["genome"], cal, verify_shots, 8, vseed + sd + 1)
+        if keep_counts:
+            o["verify_counts"], g["verify_counts"] = o_counts, g_counts
         row = {"seed": sd, "organism": o, "ga": g}
         if include_bo:
             b = run_bo(workdir, sd, budget, cal)

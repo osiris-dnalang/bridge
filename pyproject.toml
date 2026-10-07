@@ -14,6 +14,7 @@ dependencies = ["numpy>=1.24", "qiskit>=1.0", "qiskit-aer>=0.14"]
 [project.optional-dependencies]
 dev = ["pytest>=7.0", "ruff>=0.4.0", "jsonschema>=4.0"]
 bo = ["optuna>=3.0"]
+governance = ["osiris-governance>=0.1"]
 
 [tool.setuptools.packages.find]
 include = ["bridge*"]
