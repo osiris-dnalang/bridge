@@ -13,7 +13,7 @@ ROOT = Path(__file__).parent.parent
 sys.path.insert(0, str(ROOT))
 pytest.importorskip("qiskit_aer")
 import bridge  # noqa: E402,F401
-from bridge.compare import HARD, best_in_cache, compare, verify  # noqa: E402
+from bridge.compare import HARD, best_in_cache, compare, run_bo, verify  # noqa: E402
 from bridge.edits import EDITS, apply_edit  # noqa: E402
 from bridge.noise import (  # noqa: E402
     Calibration,
@@ -197,3 +197,40 @@ def test_drift_bench_arms_and_trajectory(tmp_path):
         assert len(rows) == 12
     assert _evals_to_target([0.1, 0.5, 0.9, 0.95], 0.9, 99) == 3
     assert _evals_to_target([0.1, 0.5], 0.9, 99) == 99
+
+
+# ── Bayesian-optimisation arm (exploratory, optional [bo] extra) ─────────────
+
+def _key_to_genome(key):
+    even, odd, off = key.split("|")
+    return {"even": list(even), "odd": list(odd), "offset": float(off)}
+
+
+def test_bo_matches_ga_budget_accounting(tmp_path):
+    pytest.importorskip("optuna")
+    b = run_bo(tmp_path, 0, 15, HARD)
+    assert b["evals"] == 15 and b["ledger_valid"]
+    assert b["trials"] >= 15 + b["rejected_by_screen"]
+    rows = list(Ledger(tmp_path / "bo_seed0.ledger.jsonl"))
+    assert len(rows) == 15 and len({r["genome_key"] for r in rows}) == 15     # unique evals only
+    assert rows[0]["genome_key"] == SPACE.key(SPACE.baselines()["xy4"])        # same seed as GA
+    assert all(SPACE.screen(_key_to_genome(r["genome_key"])) is None for r in rows)
+    assert b["search_score"] == max(r["score"] for r in rows)
+
+
+def test_bo_is_deterministic_per_seed(tmp_path):
+    pytest.importorskip("optuna")
+    a = run_bo(tmp_path / "a", 3, 12, HARD)
+    b = run_bo(tmp_path / "b", 3, 12, HARD)
+    assert (a["genome_key"], a["search_score"]) == (b["genome_key"], b["search_score"])
+
+
+def test_compare_bo_is_exploratory_and_leaves_verdict_alone(tmp_path):
+    pytest.importorskip("optuna")
+    out = compare(tmp_path, seeds=[0], budget=10, cal=HARD, verify_shots=128, include_bo=True)
+    r = out["rows"][0]
+    assert r["bo"]["evals"] <= 10 and 0.0 <= r["bo"]["verify"] <= 1.0
+    assert set(out["verdict"]) == {"C1_organism_matches_ga", "C1_count", "C2_both_beat_baseline",
+                                   "C2_count", "n", "pass"}
+    assert out["exploratory"]["note"].startswith("not pre-registered")
+    assert {"bo_ge_ga_minus_tol", "bo_ge_organism_minus_tol", "bo_beats_baseline"} <= set(out["exploratory"])

@@ -12,6 +12,10 @@ which is what the criterion is judged on, so noisy in-search maxima cannot infla
 Pre-registered criterion (5 seeds):
     C1  organism verification ≥ GA verification − tol on ≥ 4/5 seeds
     C2  both organism and GA beat the best baseline (verification) on ≥ 4/5 seeds
+
+``include_bo=True`` adds a third searcher, Bayesian optimisation (Optuna TPE, optional
+``[bo]`` extra), under the same budget accounting. Its comparisons are reported as
+``exploratory`` and never enter C1/C2: no BO criterion has been pre-registered.
 """
 from __future__ import annotations
 
@@ -77,9 +81,51 @@ def run_ga(workdir: Path, seed: int, budget: int, cal: Calibration, pop: int = 1
             "ga_reported_best": res.best_score, **best, "ledger_valid": f.ledger.verify() is None}
 
 
+def run_bo(workdir: Path, seed: int, budget: int, cal: Calibration,
+           max_trials_factor: int = 50) -> Dict[str, Any]:
+    """Optuna TPE over the DDSpace genome: one categorical per slot plus the offset.
+
+    Like the GA, parity-violating proposals are rejected before scoring and cost no
+    budget; they are told to the study as FAIL so TPE models only screened genomes.
+    Cached genomes are free. Budget therefore counts unique circuit evaluations exactly
+    as for the GA, and xy4 is the first trial just as it seeds the GA population."""
+    import optuna
+    from optuna.trial import TrialState
+
+    optuna.logging.set_verbosity(optuna.logging.WARNING)
+    f = QuantumFitness(workdir / f"bo_seed{seed}.ledger.jsonl",
+                       schedule=DriftSchedule.constant(cal), seed=seed)
+    space = f.space
+    K = len(space.baselines()["xy4"]["even"])
+    names = [f"{side}{k}" for side in ("e", "o") for k in range(K)]
+
+    study = optuna.create_study(direction="maximize",
+                                sampler=optuna.samplers.TPESampler(seed=seed))
+    xy4 = space.baselines()["xy4"]
+    study.enqueue_trial({**dict(zip(names, xy4["even"] + xy4["odd"])), "offset": xy4["offset"]})
+
+    trials = rejected = 0
+    while f.evals < budget and trials < max_trials_factor * budget:
+        trial = study.ask()
+        trials += 1
+        pulses = [trial.suggest_categorical(n, list(space.pulses)) for n in names]
+        g = {"even": pulses[:K], "odd": pulses[K:],
+             "offset": trial.suggest_categorical("offset", list(space.offsets))}
+        if space.screen(g) is not None:
+            rejected += 1
+            study.tell(trial, state=TrialState.FAIL)
+            continue
+        study.tell(trial, f.score(g, 0))
+    best = best_in_cache(f, cal)
+    return {"method": "bo", "seed": seed, "evals": f.evals, "trials": trials,
+            "rejected_by_screen": rejected, "sampler": "optuna.TPESampler",
+            "optuna_version": optuna.__version__, **best,
+            "ledger_valid": f.ledger.verify() is None}
+
+
 def compare(workdir: Path, seeds: Sequence[int] = range(5), budget: int = 300,
             cal: Calibration = HARD, tol: float = 0.005, verify_shots: int = 1024,
-            structural: bool = False) -> Dict[str, Any]:
+            structural: bool = False, include_bo: bool = False) -> Dict[str, Any]:
     workdir = Path(workdir)
     workdir.mkdir(parents=True, exist_ok=True)
     space = QuantumFitness(workdir / "probe.ledger.jsonl", DriftSchedule.constant(cal)).space
@@ -92,7 +138,12 @@ def compare(workdir: Path, seeds: Sequence[int] = range(5), budget: int = 300,
         g = run_ga(workdir, sd, budget, cal)
         o["verify"] = verify(space, o["genome"], cal, verify_shots, 8, vseed + sd + 1)
         g["verify"] = verify(space, g["genome"], cal, verify_shots, 8, vseed + sd + 1)
-        rows.append({"seed": sd, "organism": o, "ga": g})
+        row = {"seed": sd, "organism": o, "ga": g}
+        if include_bo:
+            b = run_bo(workdir, sd, budget, cal)
+            b["verify"] = verify(space, b["genome"], cal, verify_shots, 8, vseed + sd + 1)
+            row["bo"] = b
+        rows.append(row)
     c1 = sum(r["organism"]["verify"] >= r["ga"]["verify"] - tol for r in rows)
     c2 = sum(r["organism"]["verify"] > best_base and r["ga"]["verify"] > best_base for r in rows)
     n = len(rows)
@@ -106,8 +157,18 @@ def compare(workdir: Path, seeds: Sequence[int] = range(5), budget: int = 300,
                        "C2_count": c2, "n": n}}
     out["verdict"]["pass"] = bool(out["verdict"]["C1_organism_matches_ga"]
                                   and out["verdict"]["C2_both_beat_baseline"])
+    if include_bo:
+        out["bo_median_verify"] = float(np.median([r["bo"]["verify"] for r in rows]))
+        out["exploratory"] = {
+            "note": "not pre-registered; does not affect verdict",
+            "bo_ge_ga_minus_tol": sum(r["bo"]["verify"] >= r["ga"]["verify"] - tol for r in rows),
+            "bo_ge_organism_minus_tol": sum(r["bo"]["verify"] >= r["organism"]["verify"] - tol
+                                            for r in rows),
+            "bo_beats_baseline": sum(r["bo"]["verify"] > best_base for r in rows),
+            "n": n,
+        }
     (workdir / "compare.json").write_text(json.dumps(out, indent=2))
     return out
 
 
-__all__ = ["HARD", "verify", "run_organism", "run_ga", "compare", "best_in_cache"]
+__all__ = ["HARD", "verify", "run_organism", "run_ga", "run_bo", "compare", "best_in_cache"]
